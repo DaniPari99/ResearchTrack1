@@ -107,41 +107,41 @@ After that, for the implementation of this pseudo-code I decided to write the fo
 * **avoid_golden_token**: it is the function that makes the robot avoiding the golden tokens. How does it work? The basic idea is to compute the distance from the left and the right golden tokens and then it makes the robot turn left or right according to the biggest distance.
 
 The basic idea of my solution (expressed by pseudo-code and then written in python language) is to travel around the circuit avoiding the golden tokens and then when a silver token is closer enough, pointing, grabbing and releasing it. 
-To avoid the golden tokens, I compute the distance from the left and the right golden tokens, then I choose to drive the robot in the direction where is the greatest distance. Everytime we are too much closer with a golden token, we must turn where the distance is greater. As it is showed by the following figure:
+To avoid the golden tokens I drive the robot where there is the greatest distance from the golden wall at left side and right side. Everytime we are too close to a golden token, I must turn in the direction where the distance is greater, as it is showed by the following figure:
 
 ![curve](https://user-images.githubusercontent.com/62515616/140643178-2ddffec3-e417-4fed-b4bc-8cca50d66bb9.png)
 
-Regarding the thresholds I used global variables and after some attempts I finally set up them as following:
+Regarding the thresholds, I used global variables and after some attempts I finally set up them as follows:
 
-* **a_th = 4.0** is the threshold that controls the alignement. rot_y_s must be in absolute value less than or equal to a_th. I used this condition in the function 'point_to_silver_token'
+* **a_th = 4.0**: it is the threshold that controls the alignement. rot_y_s must be in absolute value less than or equal to a_th. I used this condition in the function 'point_to_silver_token'.
 
-* **s_th = 70** is the angular threshold for avoiding that the robot can see and point to previous tokens. token.rot_y must be in absolute value less than or equal to s_th. I used this condition in the function 'find_silver_token'
+* **s_th = 70**: it is the angular threshold to avoid that the robot can see and point to previous tokens. token.rot_y must be in absolute value less than or equal to s_th. I used this condition in the function 'find_silver_token'.
 
-* **g_th = 50** is the angular threshold to fix the range of golden token visibility. token.rot_y must be in absolute value less than or equal to g_th. I used this condition in the function 'find_golden_token'
+* **g_th = 50**: it is the angular threshold to fix the range of golden token visibility. token.rot_y must be in absolute value less than or equal to g_th. I used this condition in the function 'find_golden_token'.
 
-* **d_th = 0.4** is the threshold for the control of the linear distance: When dist_s is less than d_th the robot can grab silver tokens. I used this condition in the first 'if' of while true loop
+* **d_th = 0.4**: it is the threshold for the control of the linear distance: When dist_s is less than d_th the robot can grab silver tokens. I used this condition in the first 'if' of while true loop.
 
-* **d_g_th = 0.8** ist the Minimum safety distance from golden token. Initially I chose for this variable the value '1', but with this value it might occur the following extreme situation:
+* **d_g_th = 0.8**: it is the Minimum safety distance from golden token. Initially I chose the value '1', but with this value it might occur the following extreme situation:
 
 ![MicrosoftTeams-image](https://user-images.githubusercontent.com/62515616/140644087-99dccbb1-2f9f-4b46-802b-aeecc5e10f52.png)
 
-In this extremely situation the robot tend to go back in the clockwise direction, because the algorithm computes the left and the right distance, but the right distance is greater than the left, so the robot go back wrongly in the clockwise direction.
-reducing the value of **d_g_th** from 1 until 0.8, I noticed that this extreme situation is minimized.
+In this extremely situation the robot tends to go back in the clockwise direction, because the algorithm computes the left and the right distance, but the right distance is greater than the left, so the robot go back wrongly in the clockwise direction.
+Reducing the value of **d_g_th** from 1 until 0.8, I noticed that this situation is minimized.
 
 ## System limitations and possible improvements
 
 ### Limitations:
 
-- Sometimes the robot goes back in clockwise direction as I mentioned previously. This obviously is a wrong behaviour but it happens because of a limit of the system due to the fact that the robot hasn't got any internal odometry
+- Sometimes the robot goes back in clockwise direction as I mentioned previously. This obviously is a wrong behaviour but it happens because of a limit of the system due to the fact that the robot hasn't got any internal odometry.
 
-- Sometimes the robot is not able to grab the last silver token. This is also a wrong behaviour maybe due to the simulator
+- Sometimes the robot is not able to grab the last silver token. This is also a wrong behaviour maybe due to the simulator.
 
-- The algorithm is not well optimized, in fact the robot does not accomplish the fastest path, it does not take a linear way, but it goes a little zig zag and when there is a curve it notice that there is only at the end
+
 
 ### Possible improvements:
 
-- The algorithm could be better optimized as I wrote previously
-
+- The algorithm is not well optimized, in fact the robot does not accomplish the fastest path, it does not take a linear way, but it goes a little zig zag and when there is a curve it notice later that needs to turn.
+A possible solution to avoid the zig-zag walk could be going straight on mainteining the same distance from left and right walls, while to anticipate the turn, it colud start turning after that the distance of a wall (left or right) is increased a lot, going in the direction of the biggest distance.
 
 
 
