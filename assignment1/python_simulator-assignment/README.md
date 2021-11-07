@@ -4,11 +4,11 @@
 
 Parisi Daniele Martino 4670964
 
-This first assignment requires to write a Python script for achieving this robot's behaviour:
+This first assignment requires to write a Python script for achieving the robot's behaviour:
 
-* Constantly drive the robot around the circuit in the counter-clockwise direction
-* Avoid the golden token
-* When the robot is closer to a silver token, it should grab it, and move it behind itself
+* constantly drive the robot around the circuit in the counter-clockwise direction;
+* avoid the golden token;
+* when the robot is closer to a silver token, it should grab it, and move it behind itself.
 
 This is the first assignment's arena:
 
@@ -26,7 +26,7 @@ $ python run.py assignment1.py
 
 When the simulation is launched the robot is spawned in the pre-built environment and it starts suddenly to move around the circuit.
 Once the robot is closer to a silver token, it should grab it turn of 180 degrees, release it and go back for its way; this behaviour is respected in most cases, but in a few cases not. For example sometimes the robot is not able to grab a token and especially this token is always the final token. In the same way, while the robot is looking for silver tokens, it should avoid the wall formed by golden tokens.
-In the end, I can be pleased with the final behaviour despite of the bug that explained previously.
+In the end, I can be pleased with the final behaviour despite of the bug that I explained previously.
 
 ## About software architecture
 
@@ -90,24 +90,24 @@ While true
 
 After that, for the implementation of this pseudo-code I decided to write the following methods:
 
-* **drive**: it is the function that permit the robot to go straight on. It has got 2 paramethers: linear velocity and time
+* **drive**: it is the function that permits the robot to go straight on. It has got 2 parameters: linear velocity and time.
 
-* **turn**: it is the function that permit the robot to turn. It has got 2 paramethers: angular volicity and time
+* **turn**: it is the function that permits the robot to turn. It has got 2 parameters: angular velocity and time.
 
-* **find_silver_token**: it is the function that computes the coordinates (dist_s: distance from silver token; rot_y_s: angle between the robot and the silver token) of the closest silver token contained in a certain range. 
+* **find_silver_token**: it is the function that computes the coordinates (**dist_s**: distance from silver token; **rot_y_s**: angle between the robot and the silver token) of the closest silver token contained in a certain range. In my code I chose **s_th = 70** to avoid that the robot could go back and point to previous tokens.
 
-* **find_golden_token**: it is the function that computes the coordinates (dist_g: distance from silver token; rot_y_g: angle between the robot and the golden token) of the closest golden token contained in a certain range. In my code I choose g_th = 50 as the angular threshold for avoiding golden token
+* **find_golden_token**: it is the function that computes the coordinates (**dist_g**: distance from silver token; **rot_y_g**: angle between the robot and the golden token) of the closest golden token contained in a certain range. In my code I chose **g_th = 50** as the angular threshold to avoid the golden token.
 
 * **compute_rt_distance**: it is the function that computes the distance from right side.
 
-* **compute_lf_distance**: it is the function that computes the distance from left side
+* **compute_lf_distance**: it is the function that computes the distance from left side.
 
-* **point_to_silver_token**: it is the function that make the robot pointing to the closest silver token
+* **point_to_silver_token**: it is the function that makes the robot pointing to the closest silver token.
 
-* **avoid_golden_token**: it is the function that make the robot avoiding golden tokens. How it works? The basic idea is to compute the distance from left and right tokens and then make the robot turn left or right according to the biggest distance
+* **avoid_golden_token**: it is the function that makes the robot avoiding the golden tokens. How does it work? The basic idea is to compute the distance from the left and the right golden tokens and then it makes the robot turn left or right according to the biggest distance.
 
-The basic idea of my solution expressed by pseudo-code and then written in python language is traveling all the circuit avoiding golden tokens and then when a silver token is closer enough, pointing to it and then release it. 
-The basic idea for avoiding golden tokens is to drive the robot where there is the greatest distance from golden wall. Everytime we are too much closer with a golden token, we must turn where the distance is greater. As it is showed by the following figure:
+The basic idea of my solution (expressed by pseudo-code and then written in python language) is to travel around the circuit avoiding the golden tokens and then when a silver token is closer enough, pointing, grabbing and releasing it. 
+To avoid the golden tokens, I compute the distance from the left and the right golden tokens, then I choose to drive the robot in the direction where is the greatest distance. Everytime we are too much closer with a golden token, we must turn where the distance is greater. As it is showed by the following figure:
 
 ![curve](https://user-images.githubusercontent.com/62515616/140643178-2ddffec3-e417-4fed-b4bc-8cca50d66bb9.png)
 
