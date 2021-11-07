@@ -1,4 +1,4 @@
-#Research Track I - first assignment
+# Research Track I - first assignment
 
 ------------------------------------------
 
@@ -14,7 +14,7 @@ This is the first assignment's arena:
 
 ![arena](https://user-images.githubusercontent.com/62515616/140643120-618d7a83-29bf-4a80-9c9d-f05e76aa9e0a.png)
 
-##How to run the simulation
+## How to run the simulation
 
 In order to run the simulation there is a launch file that can be launched with the following command:
 
@@ -22,13 +22,13 @@ In order to run the simulation there is a launch file that can be launched with 
 $ python run.py assignment1.py
 ```
 
-##Robot behaviours
+## Robot behaviours
 
 When the simulation is launched the robot is spawned in the pre-built environment and it starts suddenly to move around the circuit.
 Once the robot is closer to a silver token, it should grab it turn of 180 degrees, release it and go back for its way; this behaviour is respected in most cases, but in a few cases not. For example sometimes the robot is not able to grab a token and especially this token is always the final token. In the same way, while the robot is looking for silver tokens, it should avoid the wall formed by golden tokens.
 In the end, I can be pleased with the final behaviour despite of the bug that explained previously.
 
-##About software architecture
+## About software architecture
 
 Before beginning to write the code I wrote the pseudo-code that is the following:
 
@@ -128,9 +128,9 @@ Regarding the thresholds I used global variables and after some attempts I final
 In this extremely situation the robot tend to go back in the clockwise direction.
 reducing the value of **d_g_th** from 1 until 0.8 I noticed that this extreme situation is minimized.
 
-##System limitations and possible improvements
+## System limitations and possible improvements
 
-###Limitations:
+### Limitations:
 
 - Sometimes the robot goes back in clockwise direction as I mentioned previously. This obviously is a wrong behaviour but it happens because of a limit of the system due to the fact that the robot hasn't got any internal odometry
 
@@ -138,7 +138,7 @@ reducing the value of **d_g_th** from 1 until 0.8 I noticed that this extreme si
 
 - The algorithm is not well optimized, in fact the robot does not accomplish the fastest path, it does not take a linear way, but it goes a little zig zag and when there is a curve it notice that there is only at the end
 
-###Possible improvements:
+### Possible improvements:
 
 - The algorithm could be better optimized as I wrote previously
 
