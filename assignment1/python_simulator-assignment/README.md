@@ -11,7 +11,7 @@ This first assignment requires to write a Python script for achieving this robot
 * When the robot is closer to a silver token, it should grab it, and move it behind itself
 
 This is the first assignment's arena:
-(...) 
+
 ![arena](https://user-images.githubusercontent.com/62515616/140643120-618d7a83-29bf-4a80-9c9d-f05e76aa9e0a.png)
 
 ##How to run the simulation
@@ -109,8 +109,7 @@ After that, for the implementation of this pseudo-code I decided to write the fo
 The basic idea of my solution expressed by pseudo-code and then written in python language is traveling all the circuit avoiding golden tokens and then when a silver token is closer enough, pointing to it and then release it. 
 The basic idea for avoiding golden tokens is to drive the robot where there is the greatest distance from golden wall. Everytime we are too much closer with a golden token, we must turn where the distance is greater. As it is showed by the following figure:
 
-(...)
-![alt text](http://url/to/Curve.png)
+![curve](https://user-images.githubusercontent.com/62515616/140643178-2ddffec3-e417-4fed-b4bc-8cca50d66bb9.png)
 
 Regarding the thresholds I used global variables and after some attempts I finally set up them as following:
 
