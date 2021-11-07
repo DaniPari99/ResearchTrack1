@@ -125,8 +125,7 @@ Regarding the thresholds I used global variables and after some attempts I final
 
 ![Go_back_situation](https://user-images.githubusercontent.com/62515616/140646946-927b2523-264d-4321-b822-71c52a43dd35.png)
 
-In this extremely situation the robot tend to go back in the clockwise direction.
-reducing the value of **d_g_th** from 1 until 0.8 I noticed that this extreme situation is minimized.
+In this extremely situation the robot tend to go back in the clockwise direction, because the algorithm computes the left and the right distance, but the right distance is greater than the left, so the robot go back wrongly in the clockwise direction. Reducing the value of d_g_th from 1 until 0.8, I noticed that this extreme situation is minimized.
 
 ##System limitations and possible improvements
 
