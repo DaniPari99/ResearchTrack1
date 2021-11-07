@@ -241,7 +241,6 @@ reducing the value of **d_g_th** from 1 until 0.8 I noticed that this extreme si
 
 - The algorithm could be better optimized as I wrote previously
 
-- 
 
 
 
