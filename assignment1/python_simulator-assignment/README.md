@@ -12,7 +12,7 @@ This first assignment requires to write a Python script for achieving this robot
 
 This is the first assignment's arena:
 (...) 
-![alt text](http://url/to/Arena.png)
+![arena](https://user-images.githubusercontent.com/62515616/140643120-618d7a83-29bf-4a80-9c9d-f05e76aa9e0a.png)
 
 ##How to run the simulation
 
