@@ -46,7 +46,8 @@ $ rosrun assignment2 user_interface
 
 ## About software architecture
 
-First of all I implemented the **robot_controller** node that is the code responsible for the robot motion. Once pleased of the robot behaviour alongside the circuit I implemented the **user_interface** node that is capable to get, read and then send to the robot_controller the command chosen by the user:
+First of all I implemented the **robot_controller** node that is the code responsible for the robot motion. For doing this I used the public / subscribe method: in the main function I define a subscriber to the **/base_scan** topic and a publisher to the **/cmd_vel** topic. **Base_scan** topic is capable to give us an array called 'ranges' which contains 720 elements which correspond to the distances from obstacles in a range between 0 degrees and 180 degrees; **cmd_vel**, instead is capable to update robot velocity. The basic idea of my code is the following: each time the array 'ranges' changes, the **controllerCallback** is called and here, according to the distances detected by the laser, the linear and the angular velocity of robot are updated.
+Once pleased of the robot behaviour alongside the circuit I implemented the **user_interface** node that is capable to get, read and then send to the robot_controller the command chosen by the user:
 * 'a' to increase the velocity of the robot
 * 'd' to decrease the velocity of the robot
 * 'r' to reset the robot position
