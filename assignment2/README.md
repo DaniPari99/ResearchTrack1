@@ -16,7 +16,7 @@ Here however:
 This is the second assignment's arena:
 
 ![MicrosoftTeams-image](https://user-images.githubusercontent.com/62515616/145718818-05d3be6b-7ac5-4c51-838f-16431ed44778.png)
-
+It is Monza circuit
 
 ##How to run the simulation
 
