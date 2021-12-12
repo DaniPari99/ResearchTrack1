@@ -52,7 +52,7 @@ Once pleased of the robot behaviour alongside the circuit I implemented the **us
 * 'd' to decrease the velocity of the robot
 * 'r' to reset the robot position
 
-For the communication between robot_controller node and user_interface one I implemented a client-server interface: the robot_controller is my server and the user_interface is my client. For doing this I made a .srv file which contains a char as request and a bool as response. The request corresponds to the user choice and the response tells the user about the succes ('1') or not ('0') of the operation.
+For the communication between **robot_controller** and **user_interface** I implemented a client-server interface: the robot_controller is my server and the user_interface is my client. For doing this I made a .srv file which contains a char as request and a bool as response. The request corresponds to the user choice and the response tells the user about the succes ('1') or not ('0') of the operation.
 Before writing the final code I did for each node the so called pseudo-code.
 ### robot controller pseudo-code
 ```
