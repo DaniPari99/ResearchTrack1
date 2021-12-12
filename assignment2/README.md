@@ -56,7 +56,7 @@ For the communication between **robot_controller** and **user_interface** I impl
 Before writing the final code I did for each node the so called pseudo-code.
 ### robot controller pseudo-code
 
-CONTROLLER CALLBACK:
+**CONTROLLER CALLBACK**:
 ```
 Subdivide the distances array 'ranges' into 3 parts for the left / right / frontal distances
 
@@ -87,7 +87,6 @@ else if the command pressed by the user corresponds to 'd'
 else if the command pressed by the user corresponds to 'r'
 
 	reset robot position
-	
 ```
 ### user interface pseudo-code
 ```
