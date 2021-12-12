@@ -56,7 +56,7 @@ For the communication between **robot_controller** and **user_interface** I impl
 Before writing the final code I did for each node the so called pseudo-code.
 ### robot controller pseudo-code
 
-**CONTROLLER CALLBACK**:
+CONTROLLER CALLBACK:
 ```
 Subdivide the distances array 'ranges' into 3 parts for the left / right / frontal distances
 
@@ -74,7 +74,7 @@ if the min distance of the frontal array become less than a certain threshold
 	
 		turn left
 ```		
-**SERVICE CALLBACK**:
+SERVICE CALLBACK:
 ```
 if the command pressed by the user corresponds to 'a'
 
