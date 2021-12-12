@@ -121,7 +121,7 @@ In the same way, but with a different array size I implemented a method called *
 - The more you increase the velocity, the more increases the probability of crash
 - There are 3 nodes (the world node included) and for launching them I have to use the command 'rosrun' three times in three different shels
 
-###P ossible improvements:
+### Possible improvements:
 
 - I could improve my code according to make the robot goes at high-speed without crashing
 - I could use roslaunch tool for launching all my nodes with one command
