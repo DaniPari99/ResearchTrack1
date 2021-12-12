@@ -55,9 +55,9 @@ Once pleased of the robot behaviour alongside the circuit I implemented the **us
 For the communication between **robot_controller** and **user_interface** I implemented a client-server interface: the robot_controller is my server and the user_interface is my client. For doing this I made a .srv file which contains a char as request and a bool as response. The request corresponds to the user choice and the response tells the user about the succes ('1') or not ('0') of the operation.
 Before writing the final code I did for each node the so called pseudo-code.
 ### robot controller pseudo-code
-```
-CONTROLLER CALLBACK:
 
+CONTROLLER CALLBACK:
+```
 Subdivide the distances array 'ranges' into 3 parts for the left / right / frontal distances
 
 Calculate the min distance value for each subarray
@@ -73,9 +73,9 @@ if the min distance of the frontal array become less than a certain threshold
 	else
 	
 		turn left
-		
-SERVICE CALLBACK:
-
+```		
+**SERVICE CALLBACK**:
+```
 if the command pressed by the user corresponds to 'a'
 
 	increase the velocity
