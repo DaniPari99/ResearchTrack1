@@ -112,7 +112,7 @@ while true
 		
 	        send nothing to the server
 ```
-After that I started to write the code. In the robot_controller node, according to avoid the robot have a negative velocity and so to avoid the robot go on reverse I set a min velocity equal to zero. In a  similar way, to avoid the robot go too fast and so to avoid the crash of the robot I set a max velocity that can be modified by the developer according to his needs.
+After that I started to write the code. In the robot_controller node, according to avoid the robot to have a negative velocity and so to avoid the robot go on reverse I set a min velocity equal to zero. In a  similar way, to avoid the robot to go too fast and so to avoid the crash of the robot I set a max velocity that can be modified by the developer according to his needs.
 
 For calculate the min distance from the right / left side I implemented a method called **calculate_min_side_dist** that returns the min element of an array given as entry parameter.
 In the same way, but with a different array size I implemented a method called **calculate_min_front_dist**. 
