@@ -21,8 +21,7 @@ This is the second assignment's arena:
 It is the real Monza circuit
 
 ## How to run the simulation
-
-In order to run the simulation there is a launch file that can be launched with the following command:
+This simulation can be launched with the following command:
 
 ```bash
 $ rosrun stage_ros stageros $(rospack find assignment2)/world/my_world.world
