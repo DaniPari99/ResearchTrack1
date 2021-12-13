@@ -87,6 +87,8 @@ else if the command pressed by the user corresponds to 'd'
 else if the command pressed by the user corresponds to 'r'
 
 	reset robot position
+	
+public the velocity on cmd_vel topic
 ```
 ### user interface pseudo-code
 ```
