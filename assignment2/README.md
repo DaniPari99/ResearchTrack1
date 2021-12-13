@@ -34,7 +34,7 @@ When the simulation is launched the robot is spawned in the pre-built environmen
 ```bash
 $ rosrun assignment2 robot_controller
 ```
-If you want, in another shell, you can launch the following command:
+If you want, in another shell you can launch the following command:
 
 ```bash
 $ rosrun assignment2 user_interface
