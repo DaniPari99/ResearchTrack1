@@ -52,6 +52,7 @@ Once pleased of the robot behaviour alongside the circuit I implemented the **us
 * 'r' to reset the robot position
 
 For the communication between **robot_controller** and **user_interface** I implemented a client-server interface: the robot_controller is my server and the user_interface is my client. For doing this I made a .srv file which contains a char as request and a bool as response. The request corresponds to the user choice and the response tells the user about the succes ('1') or not ('0') of the operation. Each time the user pressed a valid command the client sends a request to the server that calls the **serviceCallback**. This function is responsible of the acceleration / deceleration and reset position of the robot. For the implementation of the acceleration and deceleration I simply increase / decrease the cmd_vel topic and then public it; for the resetting of the position, instead, I call a service already implemented called **"/empty"** given by the 'world'. In this case the robot_controller conducts the client role and the 'world' instead is the server.
+
 Before writing the final code I did for each node the so called pseudo-code.
 ### robot controller pseudo-code
 
