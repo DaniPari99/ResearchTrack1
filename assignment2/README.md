@@ -41,7 +41,7 @@ $ rosrun assignment2 user_interface
 ```
  according to increase / decrease the velocity of the robot or to reset its position.
  
- The 'rosrun' command is composed by 2 parts: one to specify the package (assignment2) in which is contained the executable code of the node (robot_controller, user_interface).
+ The 'rosrun' command is composed by 2 parts: one to specify the package (assignment2) in which is contained the executable code of the nodes (robot_controller, user_interface).
 
 ## About software architecture
 
