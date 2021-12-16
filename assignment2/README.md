@@ -64,7 +64,7 @@ Calculate the min distance value for each subarray
 
 set a std velocity, for example equal to 2
 
-if the min distance of the frontal array become less than a certain threshold
+if the min distance of the frontal array becomes less than a certain threshold
 
 	if the min distance from right obstacles is greater than min distance from left obstacles
 		
