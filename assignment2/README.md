@@ -4,7 +4,7 @@
 
 Parisi Daniele Martino 4670964
 
-The second assignment requires to write the c++ code for moving a robot autonomously inside a circuit.
+The second assignment requires to write the c++ code for moving a robot autonomously inside a circuit. 
 
 Here however:
 
