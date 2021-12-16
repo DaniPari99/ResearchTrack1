@@ -39,26 +39,26 @@ If you want, in another shell you can launch the following command:
 ```bash
 $ rosrun assignment2 user_interface
 ```
- according to increase / decrease the velocity of the robot or to reset its position.
+ according to increase/decrease the velocity of the robot or to reset its position.
  
  The 'rosrun' command is composed by 2 parts: one to specify the package (assignment2) in which is contained the executable code of the nodes (robot_controller, user_interface).
 
 ## About software architecture
 
-First of all I implemented the **robot_controller** node that is the code responsible for the robot motion. For doing this I used the public / subscribe method: in the main function I define a subscriber to the **"/base_scan"** topic and a publisher to the **"/cmd_vel"** topic. **Base_scan** topic is capable to give us an array called 'ranges' which contains 720 elements which correspond to the distances from obstacles in a range between 0 degrees and 180 degrees; **cmd_vel**, instead is capable to update robot velocity. The basic idea of my code is the following: each time the array 'ranges' changes, the **controllerCallback** is called and here, according to the distances detected by the laser, the linear and the angular velocities are updated thanks to the publication on the cmd_vel topic.
+First of all I implemented the **robot_controller** node that is the code responsible for the robot motion. For doing this I used the public/subscribe method: in the main function I define a subscriber to the **"/base_scan"** topic and a publisher to the **"/cmd_vel"** topic. **Base_scan** topic is capable to give us an array called 'ranges' which contains 720 elements which correspond to the distances from obstacles in a range between 0 degrees and 180 degrees; **cmd_vel**, instead is capable to update robot velocity. The basic idea of my code is the following: each time the array 'ranges' changes, the **controllerCallback** is called and here, according to the distances detected by the laser, the linear and the angular velocities are updated thanks to the publication on the cmd_vel topic.
 Once pleased of the robot behaviour alongside the circuit I implemented the **user_interface** node that is capable to get, read and then send to the robot_controller the command chosen by the user:
 * 'a' to increase the velocity of the robot
 * 'd' to decrease the velocity of the robot
 * 'r' to reset the robot position
 
-For the communication between **robot_controller** and **user_interface** I implemented a client-server interface: the robot_controller is my server and the user_interface is my client. For doing this I made a .srv file which contains a char as request and a bool as response. The request corresponds to the user choice and the response tells the user about the succes ('1') or not ('0') of the operation. Each time the user pressed a valid command the client sends a request to the server that calls the **serviceCallback**. This function is responsible of the acceleration / deceleration and reset position of the robot. For the implementation of the acceleration and deceleration I simply increase / decrease the cmd_vel topic and then public it; for the resetting of the position, instead, I call a service already implemented called **"/empty"** given by the 'world'. In this case the robot_controller conducts the client role and the 'world' instead is the server.
+For the communication between **robot_controller** and **user_interface** I implemented a client-server interface: the robot_controller is my server and the user_interface is my client. For doing this I made a .srv file which contains a char as request and a bool as response. The request corresponds to the user choice and the response tells the user about the succes ('1') or not ('0') of the operation. Each time the user pressed a valid command the client sends a request to the server that calls the **serviceCallback**. This function is responsible of the acceleration/deceleration and reset position of the robot. For the implementation of the acceleration and deceleration I simply increase/decrease the cmd_vel topic and then public it; for the resetting of the position, instead, I call a service already implemented called **"/empty"** given by the 'world'. In this case the robot_controller conducts the client role and the 'world' instead is the server.
 
 Before writing the final code I did for each node the so called pseudo-code.
 ### robot controller pseudo-code
 
 CONTROLLER CALLBACK:
 ```
-Subdivide the distances array 'ranges' into 3 parts for the left / right / frontal distances
+Subdivide the distances array 'ranges' into 3 parts for the left/right/frontal distances
 
 Calculate the min distance value for each subarray
 
@@ -116,7 +116,7 @@ while true
 ```
 After that I started to write the code. In the robot_controller node, according to avoid the robot to have a negative velocity and so to avoid the robot go on reverse I set a min velocity equal to zero. In a  similar way, to avoid the robot to go too fast and so to avoid the crash of the robot I set a max velocity that can be modified by the developer according to his needs.
 
-For calculate the min distance from the right / left side I implemented a method called **calculate_min_side_dist** that returns the min element of an array given as entry parameter.
+For calculate the min distance from the right/left side I implemented a method called **calculate_min_side_dist** that returns the min element of an array given as entry parameter.
 In the same way, but with a different array size I implemented a method called **calculate_min_front_dist**. 
 
 ## System limitations and possible improvements
