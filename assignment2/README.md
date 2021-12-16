@@ -96,7 +96,7 @@ while true
 
 	print the menu to show the user all the possible choices
 	
-	put in a variable the choice by the user
+	put in a variable the choice of the user
 	
 	if the command pressed by the user is valid
 	
