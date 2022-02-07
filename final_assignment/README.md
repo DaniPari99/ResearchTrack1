@@ -13,6 +13,7 @@ This is the final assignment's environment visualized with Gazebo:
 ![MicrosoftTeams-image(4)](https://user-images.githubusercontent.com/62515616/152884108-da0032b9-8a4f-4565-8503-6839d839a8f2.png)
 
 Initially the robot does not have ha map of the environment, but it can build it through the laser scanner and thanks to the **gmapping** package. The final map built by the robot is visualized in Rviz as follows:
+
 ![MicrosoftTeams-image(3)](https://user-images.githubusercontent.com/62515616/152884728-46a1fe86-923b-4e8d-9b25-a15c8540d695.png)
 
 
