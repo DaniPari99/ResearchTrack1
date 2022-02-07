@@ -34,7 +34,7 @@ $ <?xml version="1.0"?>
 ```
 it contains 2 nested launch file: simulation_gmapping.launch and move_base.launch which respectively launch the simulation environment and provide some tools for moving the robot in the environment.
 
-it can be launched with the command:
+It can be launched with the command:
 
 ```bash
 $ roslaunch final_assignment final.launch
