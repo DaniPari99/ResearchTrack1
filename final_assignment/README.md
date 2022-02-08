@@ -45,6 +45,7 @@ As we can see from this graph, we have 9 nodes overall, even if **/user_interfac
 I choose to remap **/cmd_vel** topic from /cmd_vel to **/new_cmd_vel** according to achieve the specification regarding the 3rd modality for driving the robot. In this way the **/server** node is subscribed to the remapped topic **/new_cmd_vel** and can check if the current velocities imposed by the user can cause collisions. In this case the values of the velocities are modified and published to the actual **/cmd_vel** according to stop the robot. **/server** node is linked to **/move_base** node according to publish on **/move_base/goal** the goal chosen by the user in the 1st modality; for this purpose I also implemented a subscriber to the topic **/move_base/feedback** according to get the real-time position of the robot and check if the goal is reached; for this purpose I have a publisher to the topic **/move_base/cancel** for cancelling the current goal once is reached.
 **/server** is also connected to **/gazebo** for receiving the laser scanner data on **/scan** topic.
 
+## Pseudo-code
 
 
 
