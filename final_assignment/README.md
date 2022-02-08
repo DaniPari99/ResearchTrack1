@@ -41,7 +41,7 @@ $ roslaunch final_assignment final.launch
 ```
 ## Project structure
 ![gr](https://user-images.githubusercontent.com/62515616/152952323-427302ad-438c-4cdf-b08c-16b1f12a519a.png)
-
+There are 7 active nodes
 
 
 
