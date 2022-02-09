@@ -46,7 +46,45 @@ I choose to remap **/cmd_vel** topic from /cmd_vel to **/new_cmd_vel** according
 **/server** is also connected to **/gazebo** for receiving the laser scanner data on **/scan** topic.
 
 ## Pseudo-code
+The behaviour of the most important node of the assignment: **server** can be summarize by the following pseudo-code:
 
+```bash
+$ Whenever the user types a correct command in the user_interface shell the serviceCallback is executed:
+if command = 1
+    print "what target do you want to achieve?"
+    get from input keyboard the goal chosen
+    set the bool variable 'goal' to true
+    set the goal_msg fields pos_x and pos_y with the chosen coordinates
+    publish goal_msg
+ 
+else if command = 2
+    set the bool variable manDrive to true
+    set collisionAvoidence variable to false
+    
+else if command = 3
+    set collisionAvoidence variable to true
+    set the bool variable manDrive to false
+```
+```bash
+$ Whenever the user try to change the velocities from the teleop_twist_keyboard getVelCallback is executed:
+if we are in the 1st modality
+    the keyboard is not considered
+else if we are in the 2nd modality
+    the keyboard is considered and the velocities are published on topic cmd_vel
+else if we are in the 3rd modality
+    the message is saved in a global variable and maybe it will be corrected by the collisionAvoidenceCallback before being published
+    
+```
+```bash
+$ Whenever the position of the robot changes:
+if goal is set to true
+    get the current position of the robot
+    calculate the distance between the goal and the robot position
+    if this distance is less than or equal to a threshold
+        print "goal reached"
+        cancell the goal
+
+```
 
 
 
