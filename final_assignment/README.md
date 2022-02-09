@@ -66,7 +66,7 @@ else if command = 3
     set the bool variable manDrive to false
 ```
 ```
-Whenever the user try to change the velocities from the teleop_twist_keyboard getVelCallback is executed:
+Whenever the user try to change the velocities from the teleop_twist_keyboard 'getVelCallback' is executed:
 if we are in the 1st modality
     the keyboard is not considered
 else if we are in the 2nd modality
@@ -76,7 +76,7 @@ else if we are in the 3rd modality
     
 ```
 ```
-Whenever the position of the robot changes:
+Whenever the position of the robot changes 'currentPositionCallback' is executed:
 if goal is set to true
     get the current position of the robot
     calculate the distance between the goal and the robot position
@@ -85,6 +85,28 @@ if goal is set to true
         cancell the goal
 
 ```
+```
+Whenever a message from laserScan is received and we are in the 3rd modality 'collisionAvoidenceCallback' is executed:
+divide the array 'ranges' returned by the LaserScan topic in 5 sector (right, front_right, front, fron_left, left) and fill them appropriately
+if min_front_dist is less than a threshold
+    if linear velocity is greater than 0 and angular velocity is equal to zero
+        stop the robot
+if min_front_left_dist is less than a threshold
+    if linear velocity is greater than 0 and angular velocity is greater than zero
+        stop the robot
+if min_front_right_dist is less than or equal to a threshold
+    if linear velocity is greater than 0 and angular velocity is less than zero
+        stop the robot
+if min_left_dist is less than or equal to a threshold
+    if linear velocity is equal to 0 and angular velocity is greater than zero
+        stop the robot
+if min_right_dist is less than or equal to a threshold
+    if linear velocity is equal to 0 and angular velocity is less than zero
+        stop the robot
+publish corrected velocity
+
+```
+
 
 
 
