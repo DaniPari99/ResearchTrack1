@@ -19,8 +19,8 @@ Initially the robot does not have a map of the environment, but it can build it 
 
 ## How to run the simulation
 In order to launch different nodes with only a command I implemented a launch file called **final.launch** that is the following:
-```bash
-$ <?xml version="1.0"?>
+```
+<?xml version="1.0"?>
 
 <launch>
     <include file="$(find final_assignment)/launch/simulation_gmapping.launch" />
