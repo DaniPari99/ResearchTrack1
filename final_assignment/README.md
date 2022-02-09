@@ -147,7 +147,7 @@ publish corrected velocity on topic /cmd_vel
 * in the case in which the user sends 2 or more targets one immediately after the other, the robot will try to reach the last one chosen
 
 ### Possible improvements
-* it can be checked if the goal chosen is reachable or not and in this case printing a message in the console 'the target chosen is not reachable, retype'
+* it can be checked if the goal chosen is reachable or not and in this case printing a message in the console like 'the target chosen is not reachable, retype'
 * it can be implemented a logic that stores in a queue more than one goal chosen, according to reach them sequentially
 
 
