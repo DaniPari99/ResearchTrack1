@@ -142,6 +142,13 @@ publish corrected velocity on topic /cmd_vel
 
 ```
 ## System limitations and possible improvements
+### Limitations:
+* it is not considered the case in which the user chooses a goal that is not reachable, so in this case the robot will move infinitely to search the target position as long as the user either changes goal or modality
+* in the case in which the user sends 2 or more targets one immediately after the other, the robot will try to reach the last one chosen
+
+### Possible improvements
+* it can be checked if the goal chosen is reachable or not and in this case printing a message in the console 'the target chosen is not reachable, retype'
+* it can be implemented a logic that stores in a queue more than one goal chosen, according to reach them sequentially
 
 
 
