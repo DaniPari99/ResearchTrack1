@@ -65,8 +65,8 @@ else if command = 3
     set collisionAvoidence variable to true
     set the bool variable manDrive to false
 ```
-```bash
-$ Whenever the user try to change the velocities from the teleop_twist_keyboard getVelCallback is executed:
+```
+Whenever the user try to change the velocities from the teleop_twist_keyboard getVelCallback is executed:
 if we are in the 1st modality
     the keyboard is not considered
 else if we are in the 2nd modality
@@ -75,8 +75,8 @@ else if we are in the 3rd modality
     the message is saved in a global variable and maybe it will be corrected by the collisionAvoidenceCallback before being published
     
 ```
-```bash
-$ Whenever the position of the robot changes:
+```
+Whenever the position of the robot changes:
 if goal is set to true
     get the current position of the robot
     calculate the distance between the goal and the robot position
