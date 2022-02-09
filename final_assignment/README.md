@@ -48,7 +48,7 @@ I choose to remap **/cmd_vel** topic from /cmd_vel to **/new_cmd_vel** according
 ## Pseudo-code
 The behaviour of the most important node of the assignment: **server** can be summarize by the following pseudo-code:
 
-```bash
+```
 Whenever the user types a correct command in the user_interface shell the serviceCallback is executed:
 if command = 1
     print "what target do you want to achieve?"
