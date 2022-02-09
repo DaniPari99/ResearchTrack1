@@ -48,9 +48,8 @@ I choose to remap **/cmd_vel** topic from /cmd_vel to **/new_cmd_vel** according
 ## Pseudo-code
 The behaviour of the most important node of the assignment: **server** can be summarize by the following pseudo-code:
 
-```
 Whenever the user types a correct command in the user_interface shell the serviceCallback is executed:
-
+```
 if command = 1
 
     print "what target do you want to achieve?"
@@ -75,9 +74,8 @@ else if command = 3
     
     set the bool variable manDrive to false
 ```
-```
 Whenever the user try to change the velocities from the teleop_twist_keyboard 'getVelCallback' is executed:
-
+```
 if we are in the 1st modality
 
     the keyboard is not considered
@@ -91,9 +89,8 @@ else if we are in the 3rd modality
     the message is saved in a global variable and maybe it will be corrected by the collisionAvoidenceCallback before being published
     
 ```
-```
 Whenever the position of the robot changes 'currentPositionCallback' is executed:
-
+```
 if goal is set to true
 
     get the current position of the robot
@@ -107,9 +104,8 @@ if goal is set to true
         cancel the goal
 
 ```
-```
 Whenever a message from laserScan is received and we are in the 3rd modality 'collisionAvoidenceCallback' is executed:
-
+```
 divide the array 'ranges' returned by the LaserScan topic in 5 sector (right, front_right, front, fron_left, left) and fill them appropriately
 
 if min_front_dist is less than a threshold
