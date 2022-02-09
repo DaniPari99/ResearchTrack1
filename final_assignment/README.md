@@ -141,6 +141,7 @@ if min_right_dist is less than or equal to a threshold
 publish corrected velocity on topic /cmd_vel
 
 ```
+## System limitations and possible improvements
 
 
 
