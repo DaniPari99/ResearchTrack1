@@ -46,7 +46,7 @@ I choose to remap **/cmd_vel** topic from /cmd_vel to **/new_cmd_vel** according
 **/server** is also connected to **/gazebo** for receiving the laser scanner data on **/scan** topic.
 
 ## Pseudo-code
-The behaviour of the most important node of the assignment: **server** can be summarize by the following pseudo-code:
+The behaviour of the most important node of the assignment: **server** can be summarized by the following pseudo-code:
 
 Whenever the user types a correct command in the user_interface shell the serviceCallback is executed:
 ```
